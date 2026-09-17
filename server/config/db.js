@@ -24,8 +24,8 @@ const connectDB = async () => {
       await mongoose.connect(inMemoryUri);
       console.log(`[CampusRadar DB] Connected to In-Memory MongoDB instance successfully! (${inMemoryUri})`);
     } catch (memErr) {
-      console.error(`[CampusRadar DB] Fatal error connecting to database:`, memErr);
-      process.exit(1);
+      console.error(`[CampusRadar DB] Fatal error connecting to database. Please set a valid remote MONGODB_URI.`, memErr);
+      // Removed process.exit(1) to prevent Vercel 500 crashes
     }
   }
 };
