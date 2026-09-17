@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Dashboard — CampusRadar</title>
+  
+  <link rel="stylesheet" href="/css/global.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/pages.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+  <div id="dashboard-page-identifier" style="display:none;"></div>
+
+  <nav class="navbar" id="main-navbar"></nav>
+
+  <main class="container" style="padding-top: var(--space-xl); padding-bottom: var(--space-2xl);">
+    <!-- Welcome Header -->
+    <div class="glass-card" style="padding: var(--space-lg); margin-bottom: var(--space-lg);" id="dashboard-welcome">
+      <h1 style="font-size: 1.85rem;">Welcome to CampusRadar</h1>
+      <p style="color: var(--text-muted); margin-top:4px;">Personalized Student Discovery Dashboard</p>
+    </div>
+
+    <div class="event-details-grid">
+      <!-- Bookmarks Section -->
+      <div>
+        <h3 style="margin-bottom: 14px;">⭐ Saved & Bookmarked Events</h3>
+        <div id="bookmarks-container">
+          <div class="loading-state">
+            <p>Loading bookmarks...</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Deadlines & Quick Hubs -->
+      <div style="display:flex; flex-direction:column; gap:var(--space-md);">
+        <div class="glass-card" style="padding: var(--space-md);">
+          <h3 style="font-size: 1.1rem; margin-bottom: 12px;">⏳ Upcoming Deadlines This Week</h3>
+          <div id="deadlines-container">
+            <div class="loading-state">
+              <p>Scanning deadline radar...</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-card" style="padding: var(--space-md);">
+          <h3 style="font-size: 1.1rem; margin-bottom: 12px;">🚀 Quick Discovery Links</h3>
+          <div style="display:flex; flex-direction:column; gap:8px;">
+            <a href="/events.html" class="btn btn-secondary btn-sm" style="text-align:left; justify-content:flex-start;">📅 Browse Campus Events</a>
+            <a href="/placements.html" class="btn btn-secondary btn-sm" style="text-align:left; justify-content:flex-start; color:var(--status-success);">💼 Placement Hub Drives</a>
+            <a href="/announcements.html" class="btn btn-secondary btn-sm" style="text-align:left; justify-content:flex-start; color:var(--status-info);">📢 Official Notice Board</a>
+            <a href="/clubs.html" class="btn btn-secondary btn-sm" style="text-align:left; justify-content:flex-start;">🏛️ Campus Clubs Directory</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer" id="main-footer"></footer>
+
+  <script src="/js/utils.js"></script>
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/main.js"></script>
+  <script src="/js/dashboard.js"></script>
+</body>
+</html>

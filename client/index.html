@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CampusRadar — Everything Happening on Campus, In One Place</title>
+  <meta name="description" content="CampusRadar centralizes college events, placement opportunities, announcements, and club activities into one searchable dark-mode hub.">
+  
+  <link rel="stylesheet" href="/css/global.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/pages.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar" id="main-navbar"></nav>
+
+  <!-- Hero Section -->
+  <header class="hero container">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span style="width:7px; height:7px; border-radius:50%; background:var(--accent-primary);"></span>
+        Live Campus Discovery Engine
+      </div>
+
+      <h1 class="hero-title">
+        Everything Happening on Campus, <span class="brand-accent">In One Place.</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        Discover campus events, placement drives, institutional announcements, and student activities without searching through scattered WhatsApp groups or emails.
+      </p>
+
+      <div class="hero-actions">
+        <a href="/events.html" class="btn btn-primary">Explore Events ↗</a>
+        <a href="/placements.html" class="btn btn-secondary">Explore Opportunities</a>
+      </div>
+    </div>
+
+    <!-- Professional Campus Radar Visual Instrument -->
+    <div class="hero-visual">
+      <div class="radar-widget" aria-label="Campus Activity Radar Instrument">
+        <div class="radar-ring radar-ring-1"><span class="radar-range-label">100m</span></div>
+        <div class="radar-ring radar-ring-2"><span class="radar-range-label">250m</span></div>
+        <div class="radar-ring radar-ring-3"><span class="radar-range-label">500m</span></div>
+        <div class="radar-center-dot"></div>
+        <div class="radar-sweep-line"></div>
+        
+        <!-- Category-Coded Campus Activity Blips -->
+        <div class="radar-blip blip-event" style="top: 26%; left: 34%;" data-tooltip="📅 HackFest '26 (CS Block)"></div>
+        <div class="radar-blip blip-placement" style="top: 64%; left: 66%; animation-delay: 0.9s;" data-tooltip="💼 Google Placement Drive"></div>
+        <div class="radar-blip blip-notice" style="top: 40%; left: 74%; animation-delay: 1.5s;" data-tooltip="📢 Mid-Sem Exam Schedule"></div>
+        <div class="radar-blip blip-club" style="top: 74%; left: 30%; animation-delay: 2.1s;" data-tooltip="🎭 Cultural Night Rehearsal"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- SECTION 1: What's Happening? -->
+  <section class="container" style="margin: var(--space-xl) auto;">
+    <h2 style="text-align: center; margin-bottom: 8px;">What's Happening?</h2>
+    <p style="text-align: center; margin-bottom: var(--space-lg);">Structured campus intelligence organized for immediate scanning</p>
+
+    <div class="features-grid">
+      <div class="feature-card glass-card">
+        <div class="feature-icon">📅</div>
+        <h3>Campus Events</h3>
+        <p>Hackathons, technical summits, cultural fests, workshops, and sports leagues happening across campus.</p>
+        <a href="/events.html" style="margin-top:auto; font-weight:600; font-size:0.9rem;">Browse Events →</a>
+      </div>
+
+      <div class="feature-card glass-card">
+        <div class="feature-icon" style="background:rgba(16,185,129,0.1); color:var(--status-success);">💼</div>
+        <h3>Placement Hub</h3>
+        <p>Full-time recruitment drives, summer internships, eligibility criteria, CTC packages, and backlog rules.</p>
+        <a href="/placements.html" style="margin-top:auto; font-weight:600; font-size:0.9rem; color:var(--status-success);">Browse Drives →</a>
+      </div>
+
+      <div class="feature-card glass-card">
+        <div class="feature-icon" style="background:rgba(59,130,246,0.1); color:var(--status-info);">📢</div>
+        <h3>Important Notices</h3>
+        <p>Official announcements from Exam Cell, Academic Cell, VTOP, Hostel Administration, and Placement Cell.</p>
+        <a href="/announcements.html" style="margin-top:auto; font-weight:600; font-size:0.9rem; color:var(--status-info);">Read Notices →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: Campus Highlights -->
+  <section class="container" style="margin: var(--space-xl) auto;">
+    <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom: var(--space-md);">
+      <div>
+        <h2>Campus Highlights</h2>
+        <p>Featured marquee events happening this month</p>
+      </div>
+      <a href="/events.html" class="btn btn-secondary btn-sm">View All Events</a>
+    </div>
+
+    <div id="highlights-container" class="events-list">
+      <!-- Loaded dynamically via home script -->
+    </div>
+  </section>
+
+  <!-- SECTION 3: Why CampusRadar? -->
+  <section class="container" style="margin: var(--space-2xl) auto;">
+    <div class="glass-card" style="padding: var(--space-xl); text-align:center;">
+      <h2 style="margin-bottom: var(--space-md);">Why CampusRadar?</h2>
+
+      <div class="features-grid" style="margin-top: var(--space-lg); text-align:left;">
+        <div>
+          <h4 style="color:var(--accent-primary); margin-bottom:6px;">1. One Centralized Platform</h4>
+          <p style="font-size:0.9rem;">No more searching across 20 WhatsApp groups or buried email threads.</p>
+        </div>
+        <div>
+          <h4 style="color:var(--accent-primary); margin-bottom:6px;">2. Faster Discovery</h4>
+          <p style="font-size:0.9rem;">Filter by technical, cultural, sports, CGPA requirements, or deadline urgency.</p>
+        </div>
+        <div>
+          <h4 style="color:var(--accent-primary); margin-bottom:6px;">3. Never Miss Deadlines</h4>
+          <p style="font-size:0.9rem;">Visual urgency badges highlight registration deadlines before they close.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: CTA -->
+  <section class="container" style="margin: var(--space-xl) auto; text-align:center;">
+    <h2 style="font-size: 2.25rem; margin-bottom: 12px;">Start Exploring Campus</h2>
+    <p style="margin-bottom: 24px;">Scan events, discover career opportunities, and stay connected with student life.</p>
+    <a href="/events.html" class="btn btn-primary" style="padding: 14px 32px; font-size: 1rem;">Launch Campus Radar ↗</a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" id="main-footer"></footer>
+
+  <!-- Scripts -->
+  <script src="/js/utils.js"></script>
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/main.js"></script>
+  <script src="/js/radar.js?v=2"></script>
+  <script>
+    // Load Campus Highlights dynamically on Home Page
+    document.addEventListener('DOMContentLoaded', async () => {
+      const highlightsContainer = document.getElementById('highlights-container');
+      if (highlightsContainer) {
+        try {
+          const data = await window.API.getEvents({ highlight: 'true' });
+          const highlights = data.events || [];
+          if (highlights.length === 0) {
+            highlightsContainer.innerHTML = '<p style="color:var(--text-muted);">No campus highlights set.</p>';
+            return;
+          }
+          highlightsContainer.innerHTML = highlights.map(e => `
+            <div class="event-card-item glass-card highlight-glow">
+              <div class="event-date-badge">
+                <div class="event-date-day">${window.Utils.getDateParts(e.date).day}</div>
+                <div class="event-date-month">${window.Utils.getDateParts(e.date).month}</div>
+              </div>
+              <div class="event-details-col">
+                <div style="display:flex; gap:8px; align-items:center;">
+                  <span class="badge badge-highlight">⚡ Campus Highlight</span>
+                  ${(e.categories || []).map(c => `<span class="badge badge-tag">${c}</span>`).join(' ')}
+                </div>
+                <h3 style="font-size: 1.15rem; margin-top:4px;">
+                  <a href="/event-details.html?id=${e._id}">${window.Utils.escapeHTML(e.title)}</a>
+                </h3>
+                <div class="event-meta-info">
+                  <span>📍 ${window.Utils.escapeHTML(e.venue)}</span>
+                  <span>⏰ ${e.startTime}</span>
+                  <span>👤 ${window.Utils.escapeHTML(e.organizer)}</span>
+                </div>
+              </div>
+              <div class="event-action-col">
+                <a href="/event-details.html?id=${e._id}" class="btn btn-primary btn-sm">View Details</a>
+              </div>
+            </div>
+          `).join('');
+        } catch (err) {}
+      }
+    });
+  </script>
+</body>
+</html>

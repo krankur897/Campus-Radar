@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Club Directory — CampusRadar</title>
+  <meta name="description" content="Explore technical and cultural student organizations, AI societies, coding clubs, robotics, music, and dramatics.">
+  
+  <link rel="stylesheet" href="/css/global.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/pages.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+  <div id="clubs-page-identifier" style="display:none;"></div>
+
+  <nav class="navbar" id="main-navbar"></nav>
+
+  <main class="container" style="padding-top: var(--space-xl); padding-bottom: var(--space-2xl);">
+    <div class="hub-header">
+      <h1>Campus Clubs Directory</h1>
+      <p style="font-size:1.05rem; color:var(--text-muted); margin-top:4px;">
+        Discover technical societies, cultural guilds, and student-led organizations.
+      </p>
+    </div>
+
+    <!-- Filter Bar -->
+    <div class="filter-bar">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="search-clubs-input" class="form-input" placeholder="Search clubs by name, domain, or president...">
+      </div>
+
+      <div style="display:flex; align-items:center; gap:12px; margin-top:12px;">
+        <div class="filter-group">
+          <span class="filter-pill club-tab active" data-category="All">All Clubs</span>
+          <span class="filter-pill club-tab" data-category="Technical">Technical Clubs</span>
+          <span class="filter-pill club-tab" data-category="Cultural">Cultural Clubs</span>
+          <span class="filter-pill club-tab" data-category="Sports">Sports & Guilds</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Clubs Grid -->
+    <div id="clubs-grid-container" class="placement-grid">
+      <div class="loading-state" style="grid-column: 1/-1;">
+        <p>Scanning club directory...</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer" id="main-footer"></footer>
+
+  <script src="/js/utils.js"></script>
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/main.js"></script>
+  <script src="/js/clubs.js"></script>
+</body>
+</html>

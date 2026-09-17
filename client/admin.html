@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Management Portal — CampusRadar</title>
+  
+  <link rel="stylesheet" href="/css/global.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/pages.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+  <div id="admin-page-identifier" style="display:none;"></div>
+
+  <nav class="navbar" id="main-navbar"></nav>
+
+  <main class="container">
+    <div class="admin-layout">
+      <!-- Admin Sidebar Nav -->
+      <aside class="admin-sidebar" id="admin-sidebar-nav">
+        <!-- Rendered dynamically by admin.js based on user role -->
+      </aside>
+
+      <!-- Main Content Area -->
+      <section id="admin-tab-content">
+        <div class="loading-state">
+          <p>Initializing management dashboard...</p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer" id="main-footer"></footer>
+
+  <script src="/js/utils.js"></script>
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/main.js"></script>
+  <script src="/js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Placement & Career Hub — CampusRadar</title>
+  <meta name="description" content="Explore campus recruitment drives, software engineering roles, management internships, CTC packages, and eligibility criteria.">
+  
+  <link rel="stylesheet" href="/css/global.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/pages.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+  <div id="placements-page-identifier" style="display:none;"></div>
+
+  <nav class="navbar" id="main-navbar"></nav>
+
+  <main class="container" style="padding-top: var(--space-xl); padding-bottom: var(--space-2xl);">
+    <div class="hub-header">
+      <h1>Placement & Career Opportunities</h1>
+      <p style="font-size:1.05rem; color:var(--text-muted); margin-top:4px;">
+        Find placement drives and internships with eligibility information in one place.
+      </p>
+    </div>
+
+    <!-- Filter Bar -->
+    <div class="filter-bar">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="search-placements-input" class="form-input" placeholder="Search companies, roles, locations, or requirements...">
+      </div>
+
+      <div style="display:flex; align-items:center; justify-content:space-between; width:100%; margin-top:12px; flex-wrap:wrap; gap:12px;">
+        <div class="filter-group">
+          <span class="filter-pill type-pill active" data-type="All">All Types</span>
+          <span class="filter-pill type-pill" data-type="Full-Time">Full-Time (FTE)</span>
+          <span class="filter-pill type-pill" data-type="Internship">Internship</span>
+        </div>
+
+        <div style="display:flex; align-items:center; gap:12px;">
+          <select id="branch-select" class="form-select" style="padding:6px 12px; font-size:0.85rem; width:auto;">
+            <option value="All">All Branches</option>
+            <option value="CSE">CSE / IT</option>
+            <option value="ECE">ECE</option>
+            <option value="EEE">EEE</option>
+            <option value="MECH">MECH</option>
+          </select>
+
+          <div id="placements-count" style="font-size:0.875rem; font-weight:700; color:var(--status-success); white-space:nowrap;">
+            Scanning...
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Placements Grid -->
+    <div id="placements-grid-container" class="placement-grid">
+      <div class="loading-state" style="grid-column: 1/-1;">
+        <p>Scanning career opportunities...</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer" id="main-footer"></footer>
+
+  <script src="/js/utils.js"></script>
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/main.js"></script>
+  <script src="/js/placements.js"></script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events Discovery Hub — CampusRadar</title>
+  <meta name="description" content="Search and filter upcoming campus events, hackathons, technical summits, and cultural fests.">
+  
+  <link rel="stylesheet" href="/css/global.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/pages.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+  <div id="events-page-identifier" style="display:none;"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar" id="main-navbar"></nav>
+
+  <main class="container" style="padding-top: var(--space-xl); padding-bottom: var(--space-2xl);">
+    <div class="hub-header">
+      <h1>Campus Events</h1>
+      <p style="font-size:1.05rem; color:var(--text-muted); margin-top:4px;">
+        Discover what's happening around campus. Easily scan titles, venues, organizers, and deadlines.
+      </p>
+    </div>
+
+    <!-- Filter & Search Controls Bar -->
+    <div class="filter-bar">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="search-events-input" class="form-input" placeholder="Search events, workshops, hackathons, organizers, or venues...">
+      </div>
+
+      <div style="display:flex; align-items:center; justify-content:space-between; width:100%; margin-top:12px; flex-wrap:wrap; gap:12px;">
+        <!-- Category Filter Pills -->
+        <div class="filter-group" style="flex-wrap:wrap;">
+          <span class="filter-pill category-pill active" data-category="All">All</span>
+          <span class="filter-pill category-pill" data-category="Technical">Technical</span>
+          <span class="filter-pill category-pill" data-category="Cultural">Cultural</span>
+          <span class="filter-pill category-pill" data-category="Sports">Sports</span>
+          <span class="filter-pill category-pill" data-category="Hackathon">Hackathons</span>
+          <span class="filter-pill category-pill" data-category="Workshop">Workshops</span>
+          <span class="filter-pill category-pill" data-category="Seminar">Seminars</span>
+          <span class="filter-pill category-pill" data-category="Competition">Competitions</span>
+          <span class="filter-pill category-pill" data-category="Club Event">Club Events</span>
+        </div>
+
+        <!-- Time Range Filter Pills & Counter -->
+        <div style="display:flex; align-items:center; gap:14px;">
+          <div class="filter-group">
+            <span class="filter-pill range-pill active" data-range="all">All Upcoming</span>
+            <span class="filter-pill range-pill" data-range="week">This Week</span>
+            <span class="filter-pill range-pill" data-range="month">This Month</span>
+          </div>
+
+          <div id="events-count" style="font-size:0.875rem; font-weight:700; color:var(--accent-primary); white-space:nowrap;">
+            Scanning...
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Events Container -->
+    <div id="events-list-container" class="events-list">
+      <div class="loading-state">
+        <p>Scanning campus events...</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer" id="main-footer"></footer>
+
+  <script src="/js/utils.js"></script>
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/main.js"></script>
+  <script src="/js/events.js"></script>
+</body>
+</html>

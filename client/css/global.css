@@ -1,0 +1,324 @@
+/* ==========================================================
+   CAMPUSRADAR — GLOBAL DESIGN SYSTEM & VARIABLES
+   Dual-theme (Light + Dark) with refined campus tokens
+   ========================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* ─── Dark Theme (default) ─── */
+:root,
+[data-theme="dark"] {
+  /* Backgrounds — Rich deep slate navy palette */
+  --bg-body: #0B0F19;
+  --bg-surface: #131C2E;
+  --bg-surface-elevated: #1C2842;
+  --bg-card: #131C2E;
+  --bg-card-hover: #1A253D;
+  --bg-overlay: rgba(5, 8, 15, 0.75);
+
+  /* Accent – Rich indigo-blue */
+  --accent-primary: #4B6BFB;
+  --accent-primary-hover: #607EFF;
+  --accent-primary-light: rgba(75, 107, 251, 0.12);
+  --accent-primary-focus: rgba(75, 107, 251, 0.25);
+  --accent-secondary: #6366F1;
+  --accent-secondary-light: rgba(99, 102, 241, 0.12);
+
+  /* Text */
+  --text-primary: #F1F5F9;
+  --text-secondary: #94A3B8;
+  --text-muted: #64748B;
+
+  /* Borders & Dividers */
+  --border-primary: rgba(255, 255, 255, 0.09);
+  --border-secondary: rgba(255, 255, 255, 0.05);
+
+  /* Status */
+  --status-success: #10B981;
+  --status-warning: #F59E0B;
+  --status-danger: #EF4444;
+  --status-info: #3B82F6;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 4px 20px -2px rgba(0, 0, 0, 0.40), 0 2px 6px -1px rgba(0, 0, 0, 0.25);
+  --shadow-lg: 0 12px 40px -4px rgba(0, 0, 0, 0.50), 0 4px 12px -2px rgba(0, 0, 0, 0.30);
+
+  /* Buttons */
+  --btn-primary-bg: #4B6BFB;
+  --btn-primary-text: #FFFFFF;
+  --btn-primary-hover-bg: #3B5BEB;
+  --btn-secondary-bg: rgba(255, 255, 255, 0.05);
+  --btn-secondary-text: var(--text-primary);
+  --btn-secondary-border: var(--border-primary);
+
+  /* Forms */
+  --input-bg: #0F172A;
+  --input-border: var(--border-primary);
+  --input-text: var(--text-primary);
+
+  /* Navbar */
+  --navbar-bg: rgba(11, 15, 25, 0.82);
+
+  /* Footer */
+  --footer-bg: #080B12;
+
+  /* Radar */
+  --radar-bg: radial-gradient(circle, rgba(75,107,251,0.08) 0%, rgba(11,15,25,0.96) 75%);
+  --radar-border: rgba(75, 107, 251, 0.28);
+  --radar-ring: rgba(75, 107, 251, 0.16);
+  --radar-sweep: rgba(75, 107, 251, 0.25);
+  --radar-blip: #4B6BFB;
+  --radar-grid: rgba(75, 107, 251, 0.08);
+
+  /* Misc */
+  --badge-tag-bg: rgba(255, 255, 255, 0.06);
+  --filter-pill-bg: rgba(255, 255, 255, 0.05);
+  --filter-pill-active-bg: var(--accent-primary);
+  --filter-pill-active-text: #FFFFFF;
+  --bg-card-subtle: rgba(255, 255, 255, 0.04);
+}
+
+/* ─── Light Theme ─── */
+[data-theme="light"] {
+  /* Backgrounds */
+  --bg-body: #F4F6F9;
+  --bg-surface: #FFFFFF;
+  --bg-surface-elevated: #FFFFFF;
+  --bg-card: #FFFFFF;
+  --bg-card-hover: #F8FAFC;
+  --bg-card-subtle: #F0F4F8;
+  --bg-overlay: rgba(15, 23, 42, 0.40);
+
+  /* Accent */
+  --accent-primary: #2563EB;
+  --accent-primary-hover: #1D4ED8;
+  --accent-primary-light: rgba(37, 99, 235, 0.09);
+  --accent-primary-focus: rgba(37, 99, 235, 0.18);
+  --accent-secondary: #4F46E5;
+  --accent-secondary-light: rgba(79, 70, 229, 0.09);
+
+  /* Text — WCAG AA compliant slate ratios */
+  --text-primary: #0F172A;
+  --text-secondary: #334155;
+  --text-muted: #475569;
+
+  /* Borders */
+  --border-primary: rgba(15, 23, 42, 0.12);
+  --border-secondary: rgba(15, 23, 42, 0.08);
+
+  /* Status */
+  --status-success: #059669;
+  --status-warning: #D97706;
+  --status-danger: #DC2626;
+  --status-info: #2563EB;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 16px -2px rgba(15, 23, 42, 0.10), 0 2px 6px -1px rgba(15, 23, 42, 0.05);
+  --shadow-lg: 0 12px 32px -4px rgba(15, 23, 42, 0.14), 0 4px 12px -2px rgba(15, 23, 42, 0.08);
+
+  /* Buttons */
+  --btn-primary-bg: #2563EB;
+  --btn-primary-text: #FFFFFF;
+  --btn-primary-hover-bg: #1D4ED8;
+  --btn-secondary-bg: #E2E8F0;
+  --btn-secondary-text: var(--text-primary);
+  --btn-secondary-border: var(--border-primary);
+
+  /* Forms */
+  --input-bg: #FFFFFF;
+  --input-border: var(--border-primary);
+  --input-text: var(--text-primary);
+
+  /* Navbar */
+  --navbar-bg: rgba(255, 255, 255, 0.90);
+
+  /* Footer */
+  --footer-bg: #E2E8F0;
+
+  /* Radar */
+  --radar-bg: radial-gradient(circle, rgba(37,99,235,0.06) 0%, rgba(244,246,249,0.95) 75%);
+  --radar-border: rgba(37, 99, 235, 0.25);
+  --radar-ring: rgba(37, 99, 235, 0.15);
+  --radar-sweep: rgba(37, 99, 235, 0.20);
+  --radar-blip: #2563EB;
+  --radar-grid: rgba(37, 99, 235, 0.07);
+
+  /* Misc */
+  --badge-tag-bg: rgba(15, 23, 42, 0.06);
+  --filter-pill-bg: rgba(15, 23, 42, 0.05);
+  --filter-pill-active-bg: var(--accent-primary);
+  --filter-pill-active-text: #FFFFFF;
+}
+
+/* ─── Typography & Base ─── */
+:root {
+  --font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Spacing (8px grid) */
+  --space-2xs: 4px;
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 32px;
+  --space-xl: 48px;
+  --space-2xl: 64px;
+
+  /* Geometry */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+  --container-max: 1280px;
+
+  /* Motion Design Tokens */
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --duration-slow: 350ms;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+
+  --transition-fast: var(--duration-fast) var(--ease-in-out);
+  --transition-normal: var(--duration-normal) var(--ease-in-out);
+  --transition-slow: var(--duration-slow) var(--ease-out);
+
+  /* Legacy aliases mapped to tokens */
+  --accent-primary-glow: var(--accent-primary-focus);
+  --border-subtle: var(--border-primary);
+  --border-accent: var(--radar-border);
+  --bg-dark: var(--bg-body);
+  --text-dim: var(--text-muted);
+  --shadow-glow: var(--shadow-md);
+  --shadow-purple-glow: var(--shadow-md);
+}
+
+/* ─── Base Reset ─── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-family);
+  font-size: 16px;
+  color: var(--text-primary);
+  background-color: var(--bg-body);
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  background: var(--bg-body);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ─── Typography ─── */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+h1 { font-size: clamp(1.9rem, 3.8vw, 2.9rem); font-weight: 800; }
+h2 { font-size: clamp(1.45rem, 2.6vw, 2.05rem); }
+h3 { font-size: 1.25rem; font-weight: 600; }
+h4 { font-size: 1.08rem; font-weight: 600; }
+
+p {
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+a {
+  color: var(--accent-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--accent-primary-hover);
+}
+
+/* ─── Container ─── */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+/* ─── Keyframe Animations ─── */
+@keyframes radarSweep {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.75; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+@keyframes pulseDetection {
+  0% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.35); opacity: 1; filter: brightness(1.2); }
+  100% { transform: scale(1); opacity: 0.8; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes floatAnim {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+/* ─── Scroll Reveal Utility ─── */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity var(--duration-slow) var(--ease-out), transform var(--duration-slow) var(--ease-out);
+  will-change: opacity, transform;
+}
+
+.scroll-reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── Structured Info Panel Utility ─── */
+.info-panel {
+  background: var(--bg-card-subtle);
+  border: 1px solid var(--border-secondary);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.info-panel strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+

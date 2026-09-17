@@ -1,0 +1,105 @@
+/* ==========================================================
+   CAMPUSRADAR — RESPONSIVE DESIGN BREAKPOINTS
+   ========================================================== */
+
+@media (max-width: 1024px) {
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-badge, .hero-actions {
+    justify-content: center;
+    align-self: center;
+  }
+
+  .hero-visual {
+    order: -1;
+  }
+
+  .hero-subtitle {
+    margin: 0 auto;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .event-details-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-overview-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none; /* Handled by mobile drawer */
+  }
+
+  .nav-links.mobile-open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    width: 100%;
+    background: var(--bg-surface-elevated);
+    border-bottom: 1px solid var(--border-primary);
+    padding: var(--space-md);
+    box-shadow: var(--shadow-md);
+    z-index: 999;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .event-card-item {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .event-action-col {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .placement-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+
+  .stats-overview-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .radar-widget {
+    width: 220px;
+    height: 220px;
+  }
+
+  .radar-ring-1 { width: 60px; height: 60px; }
+  .radar-ring-2 { width: 120px; height: 120px; }
+  .radar-ring-3 { width: 180px; height: 180px; }
+
+  .radar-sweep-line {
+    width: 110px;
+    height: 110px;
+  }
+}

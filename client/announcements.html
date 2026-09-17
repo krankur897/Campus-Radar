@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Official Announcements — CampusRadar</title>
+  <meta name="description" content="Official campus notice board for Exam Cell, Academic Cell, VTOP, Hostel Administration, and Placement notices.">
+  
+  <link rel="stylesheet" href="/css/global.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/pages.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+  <div id="announcements-page-identifier" style="display:none;"></div>
+
+  <nav class="navbar" id="main-navbar"></nav>
+
+  <main class="container" style="padding-top: var(--space-xl); padding-bottom: var(--space-2xl);">
+    <div class="hub-header">
+      <h1>Important Announcements</h1>
+      <p style="font-size:1.05rem; color:var(--text-muted); margin-top:4px;">
+        Centralized notice board for institutional communications, exam timetables, academic deadlines, and hostel alerts.
+      </p>
+    </div>
+
+    <!-- Filter Bar -->
+    <div class="filter-bar">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="search-announcements-input" class="form-input" placeholder="Search notices, timetables, academic circulars...">
+      </div>
+
+      <div style="display:flex; align-items:center; justify-content:space-between; width:100%; margin-top:12px; flex-wrap:wrap; gap:12px;">
+        <div class="filter-group" style="flex-wrap:wrap;">
+          <span class="filter-pill badge-pill active" data-badge="All">All Badges</span>
+          <span class="filter-pill badge-pill" data-badge="URGENT">URGENT</span>
+          <span class="filter-pill badge-pill" data-badge="DEADLINE">DEADLINE</span>
+          <span class="filter-pill badge-pill" data-badge="EXAM">EXAM</span>
+          <span class="filter-pill badge-pill" data-badge="ACADEMIC">ACADEMIC</span>
+          <span class="filter-pill badge-pill" data-badge="HOSTEL">HOSTEL</span>
+        </div>
+
+        <div style="display:flex; align-items:center; gap:12px;">
+          <select id="source-select" class="form-select" style="padding:6px 12px; font-size:0.85rem; width:auto;">
+            <option value="All">All Departments</option>
+            <option value="Academic Cell">Academic Cell</option>
+            <option value="Exam Cell">Exam Cell</option>
+            <option value="VTOP">VTOP / ERP</option>
+            <option value="Placement Cell">Placement Cell</option>
+            <option value="Hostel Administration">Hostel Admin</option>
+          </select>
+
+          <div id="announcements-count" style="font-size:0.875rem; font-weight:700; color:var(--status-info); white-space:nowrap;">
+            Scanning...
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Announcement List -->
+    <div id="announcements-list-container" class="announcement-list">
+      <div class="loading-state">
+        <p>Scanning notice board...</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer" id="main-footer"></footer>
+
+  <script src="/js/utils.js"></script>
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/main.js"></script>
+  <script src="/js/announcements.js"></script>
+</body>
+</html>

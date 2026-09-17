@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In / Register — CampusRadar</title>
+  
+  <link rel="stylesheet" href="/css/global.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/pages.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+
+  <nav class="navbar" id="main-navbar"></nav>
+
+  <main class="container">
+    <div class="auth-wrapper glass-card">
+      
+      <!-- Prototype Notice Banner -->
+      <div style="background: var(--accent-primary-light); border: 1px solid var(--border-primary); border-radius: var(--radius-sm); padding: 12px; margin-bottom: 20px; font-size: 0.825rem; color: var(--text-secondary); text-align: center;">
+        <strong style="color: var(--accent-primary); display:block; margin-bottom: 2px;">PROTOTYPE AUTHENTICATION SYSTEM</strong>
+        Verified institutional authentication & SSO will be supported in production.
+      </div>
+
+      <!-- Quick Demo Account Switcher -->
+      <div style="margin-bottom: 20px;">
+        <label style="font-size:0.8rem; font-weight:700; color:var(--text-muted); display:block; margin-bottom:6px;">
+          ⚡ EXHIBITION DEMO QUICK LOGIN (Click any role to test):
+        </label>
+        <div class="demo-account-pills">
+          <button onclick="window.Auth.loginAsDemoAccount('student')" class="btn btn-secondary btn-sm" style="font-size:0.75rem;">🎓 Student</button>
+          <button onclick="window.Auth.loginAsDemoAccount('club')" class="btn btn-secondary btn-sm" style="font-size:0.75rem;">🏛️ Club President</button>
+          <button onclick="window.Auth.loginAsDemoAccount('placement')" class="btn btn-secondary btn-sm" style="font-size:0.75rem;">💼 Placement Head</button>
+          <button onclick="window.Auth.loginAsDemoAccount('faculty')" class="btn btn-secondary btn-sm" style="font-size:0.75rem;">👨‍🏫 Faculty</button>
+          <button onclick="window.Auth.loginAsDemoAccount('admin')" class="btn btn-secondary btn-sm" style="font-size:0.75rem; border-color:var(--accent-primary);">⚡ Super Admin</button>
+        </div>
+      </div>
+
+      <!-- Tabs -->
+      <div class="auth-tabs">
+        <div class="auth-tab active" id="tab-login" onclick="switchAuthTab('login')">SIGN IN</div>
+        <div class="auth-tab" id="tab-signup" onclick="switchAuthTab('signup')">SIGN UP</div>
+      </div>
+
+      <!-- Login Form -->
+      <form id="login-form" onsubmit="handleLoginSubmit(event)">
+        <div class="form-group">
+          <label class="form-label">College Email *</label>
+          <input type="email" id="login-email" class="form-input" required placeholder="student@demo.campusradar.local" value="student@demo.campusradar.local">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Password *</label>
+          <input type="password" id="login-password" class="form-input" required value="demo123">
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width:100%; margin-top:12px;">Sign In to CampusRadar</button>
+      </form>
+
+      <!-- Signup Form -->
+      <form id="signup-form" style="display:none;" onsubmit="handleSignupSubmit(event)">
+        <div class="form-group">
+          <label class="form-label">Full Name *</label>
+          <input type="text" id="signup-name" class="form-input" required placeholder="Aarav Sharma">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">College Email *</label>
+          <input type="email" id="signup-email" class="form-input" required placeholder="aarav@college.edu">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Select Role *</label>
+          <select id="signup-role" class="form-select">
+            <option value="Student">Student / Visitor</option>
+            <option value="ClubPresident">Club President</option>
+            <option value="PlacementHead">Placement Cell Head</option>
+            <option value="Faculty">Faculty In-Charge</option>
+            <option value="Admin">Super Admin</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Password *</label>
+          <input type="password" id="signup-password" class="form-input" required placeholder="••••••••">
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width:100%; margin-top:12px;">Create Account</button>
+      </form>
+
+      <!-- Disabled SSO Button -->
+      <div style="margin-top:20px; text-align:center;">
+        <button class="btn btn-secondary" disabled style="width:100%; opacity:0.6; cursor:not-allowed;">
+          Continue with College SSO (Prototype Reserved)
+        </button>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="footer" id="main-footer"></footer>
+
+  <script src="/js/utils.js"></script>
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/main.js"></script>
+  <script>
+    function switchAuthTab(tab) {
+      const loginForm = document.getElementById('login-form');
+      const signupForm = document.getElementById('signup-form');
+      const loginTab = document.getElementById('tab-login');
+      const signupTab = document.getElementById('tab-signup');
+
+      if (tab === 'login') {
+        loginForm.style.display = 'block';
+        signupForm.style.display = 'none';
+        loginTab.classList.add('active');
+        signupTab.classList.remove('active');
+      } else {
+        loginForm.style.display = 'none';
+        signupForm.style.display = 'block';
+        signupTab.classList.add('active');
+        loginTab.classList.remove('active');
+      }
+    }
+
+    async function handleLoginSubmit(e) {
+      e.preventDefault();
+      const email = document.getElementById('login-email').value.trim();
+      const password = document.getElementById('login-password').value;
+
+      try {
+        const res = await window.API.login(email, password);
+        window.Auth.setUser(res.user, res.token);
+        window.Main.showToast(`Welcome back, ${res.user.name}!`, 'success');
+        
+        setTimeout(() => {
+          if (res.user.role === 'Student') {
+            window.location.href = '/dashboard.html';
+          } else {
+            window.location.href = '/admin.html';
+          }
+        }, 500);
+      } catch (err) {}
+    }
+
+    async function handleSignupSubmit(e) {
+      e.preventDefault();
+      const userData = {
+        name: document.getElementById('signup-name').value.trim(),
+        email: document.getElementById('signup-email').value.trim(),
+        role: document.getElementById('signup-role').value,
+        password: document.getElementById('signup-password').value
+      };
+
+      try {
+        const res = await window.API.signup(userData);
+        window.Auth.setUser(res.user, res.token);
+        window.Main.showToast(`Account created for ${res.user.name}!`, 'success');
+
+        setTimeout(() => {
+          if (res.user.role === 'Student') {
+            window.location.href = '/dashboard.html';
+          } else {
+            window.location.href = '/admin.html';
+          }
+        }, 500);
+      } catch (err) {}
+    }
+  </script>
+</body>
+</html>
