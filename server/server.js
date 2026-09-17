@@ -47,19 +47,8 @@ app.get('*', (req, res, next) => {
   });
 });
 
-// Start Express server immediately so port 5000 responds right away
-app.listen(PORT, async () => {
-  console.log(`
-==========================================================
- 🚀 CAMPUSRADAR BACKEND SERVER IS RUNNING
-==========================================================
- Port:        ${PORT}
- Web UI:      http://localhost:${PORT}
- Healthcheck: http://localhost:${PORT}/api/health
-==========================================================
-  `);
-
-  // Connect to DB and auto-seed asynchronously
+// Initialize DB connection (Mongoose buffers queries until connected)
+const initDB = async () => {
   try {
     await connectDB();
     const Event = require('./models/Event');
@@ -71,4 +60,24 @@ app.listen(PORT, async () => {
   } catch (err) {
     console.error('[CampusRadar Server] Database initialization error:', err);
   }
-});
+};
+
+// Start Express server locally if run directly
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`
+==========================================================
+ 🚀 CAMPUSRADAR BACKEND SERVER IS RUNNING
+==========================================================
+ Port:        ${PORT}
+ Web UI:      http://localhost:${PORT}
+ Healthcheck: http://localhost:${PORT}/api/health
+==========================================================
+    `);
+    initDB();
+  });
+} else {
+  // Export app for serverless execution (e.g. Vercel)
+  initDB();
+  module.exports = app;
+}
